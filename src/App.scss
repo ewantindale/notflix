@@ -120,47 +120,23 @@
   }
 }
 
-.nav {
+.navbar {
   position: fixed;
-  z-index: 1;
   top: 0;
   width: 100%;
   height: 68px;
-  overflow: hidden;
   display: flex;
   align-items: center;
-  color: white;
-  padding: 0 4%;
-  /* background-color: rgba(0, 0, 0, 0.5); */
+  z-index: 1;
   background-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 0.7) 10%,
     rgba(0, 0, 0, 0)
   );
+  padding: 0 4%;
 
   .netflix-logo {
     width: 6rem;
     height: auto;
-  }
-  .menu {
-    display: block;
-  }
-  ul {
-    display: flex;
-    list-style-type: none;
-    align-items: center;
-    li {
-      margin-left: 1rem;
-    }
-  }
-  .nav-link {
-    font-size: 0.9rem;
-
-    color: white;
-    text-decoration: none;
-  }
-  .nav-link:hover {
-    opacity: 0.5;
-    transition: 0.5s ease;
   }
 }

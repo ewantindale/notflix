@@ -4,6 +4,7 @@ import Movie from "./components/Movie";
 import axios from "axios";
 import fetchMovieTrailerId from "movie-trailer";
 import YouTube from "react-youtube";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -61,40 +62,7 @@ function App() {
 
   return (
     <div className="app">
-      <div className="nav">
-        <img
-          src="/images/netflix.png"
-          className="netflix-logo"
-          alt="Netflix Logo"
-        />
-        <ul>
-          <li>
-            <a href="#" className="nav-link">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link">
-              Series
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link">
-              Films
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link">
-              Latest
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link">
-              My List
-            </a>
-          </li>
-        </ul>
-      </div>
+      <Navbar />
 
       <YouTube
         videoId={movieTrailerId}
