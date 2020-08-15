@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Movie from "./components/Movie";
 import axios from "axios";
@@ -43,7 +43,7 @@ function App() {
       const res = await axios({
         method: "get",
         url:
-          "https://api.themoviedb.org/3/movie/top_rated?api_key=316b1b6ab5e4d09f42c1a134f380e6e2&language=en-UK&page=2",
+          "https://api.themoviedb.org/3/movie/top_rated?api_key=316b1b6ab5e4d09f42c1a134f380e6e2&language=en-US&page=3",
       });
 
       const movies = await res.data.results;

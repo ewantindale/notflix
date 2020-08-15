@@ -142,9 +142,13 @@
     width: 6rem;
     height: auto;
   }
+  .menu {
+    display: block;
+  }
   ul {
     display: flex;
     list-style-type: none;
+    align-items: center;
     li {
       margin-left: 1rem;
     }
