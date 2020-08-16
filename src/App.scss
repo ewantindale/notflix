@@ -133,9 +133,14 @@
     rgba(0, 0, 0, 0)
   );
   padding: 0 4%;
+  transition: 0.5s ease;
 
   .netflix-logo {
     width: 6rem;
     height: auto;
+  }
+
+  &.scrolled {
+    background-color: rgb(20, 20, 20);
   }
 }
