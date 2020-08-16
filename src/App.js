@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 import MovieRow from "./components/MovieRow";
-import Movie from "./components/Movie";
 import axios from "axios";
 import fetchMovieTrailerId from "movie-trailer";
 import YouTube from "react-youtube";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [movieTrailerId, setMovieTrailerId] = useState("");
   const [movieTitle, setMovieTitle] = useState("");
@@ -39,21 +37,7 @@ function App() {
 
       setGenres(genres);
     }
-
-    async function getMovies() {
-      const res = await axios({
-        method: "get",
-        url:
-          "https://api.themoviedb.org/3/movie/top_rated?api_key=316b1b6ab5e4d09f42c1a134f380e6e2&language=en-US&page=3",
-      });
-
-      const movies = await res.data.results;
-
-      setMovies(movies);
-      selectMovie(movies[0].title);
-    }
     getGenres();
-    //getMovies();
   }, []);
 
   function onPlayerReady(event) {
@@ -79,9 +63,6 @@ function App() {
       />
       <h1 className="movie-title">{movieTitle}</h1>
       <section className="movie-list">
-        {/* {movies.map((movie) => (
-          <Movie key={movie.id} movie={movie} onMovieClicked={onMovieClicked} />
-        ))} */}
         {genres.map((genre) => (
           <MovieRow key={genre.id} genre={genre} selectMovie={selectMovie} />
         ))}

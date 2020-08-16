@@ -1,5 +1,4 @@
 import React from "react";
-import { FaPlay } from "react-icons/fa";
 import { GrPlayFill } from "react-icons/gr";
 
 export default function Movie({ movie, selectMovie }) {
@@ -17,10 +16,6 @@ export default function Movie({ movie, selectMovie }) {
       <button className="play-button" onClick={handleClick}>
         <GrPlayFill />
       </button>
-
-      {/* <div className="info">
-        <p className="title">{movie.title}</p>
-      </div> */}
     </div>
   );
 }
