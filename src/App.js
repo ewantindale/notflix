@@ -8,8 +8,8 @@ import Navbar from "./components/Navbar";
 
 function App() {
   const [genres, setGenres] = useState([]);
-  const [movieTrailerId, setMovieTrailerId] = useState("");
-  const [movieTitle, setMovieTitle] = useState("");
+  const [movieTrailerId, setMovieTrailerId] = useState("01ON04GCwKs");
+  const [movieTitle, setMovieTitle] = useState("Mulan");
 
   async function selectMovie(title) {
     try {
