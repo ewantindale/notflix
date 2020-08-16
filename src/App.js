@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
+import MovieRow from "./components/MovieRow";
 import Movie from "./components/Movie";
 import axios from "axios";
 import fetchMovieTrailerId from "movie-trailer";
@@ -10,10 +11,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [movieTrailerId, setMovieTrailerId] = useState("");
-
-  function onMovieClicked(movie) {
-    selectMovie(movie.title);
-  }
+  const [movieTitle, setMovieTitle] = useState("");
 
   async function selectMovie(title) {
     try {
@@ -22,6 +20,8 @@ function App() {
       });
 
       setMovieTrailerId(trailer_id);
+      setMovieTitle(title);
+      window.scrollTo(0, 0);
     } catch (e) {
       console.log(e);
     }
@@ -35,7 +35,7 @@ function App() {
           "https://api.themoviedb.org/3/genre/movie/list?api_key=316b1b6ab5e4d09f42c1a134f380e6e2&language=en-US",
       });
 
-      const genres = await res.data;
+      const genres = await res.data.genres;
 
       setGenres(genres);
     }
@@ -53,7 +53,7 @@ function App() {
       selectMovie(movies[0].title);
     }
     getGenres();
-    getMovies();
+    //getMovies();
   }, []);
 
   function onPlayerReady(event) {
@@ -73,14 +73,19 @@ function App() {
           playerVars: {
             autoplay: 1,
             controls: 0,
+            iv_load_policy: 3,
           },
         }}
       />
-      <div className="movie-list">
-        {movies.map((movie) => (
+      <h1 className="movie-title">{movieTitle}</h1>
+      <section className="movie-list">
+        {/* {movies.map((movie) => (
           <Movie key={movie.id} movie={movie} onMovieClicked={onMovieClicked} />
+        ))} */}
+        {genres.map((genre) => (
+          <MovieRow key={genre.id} genre={genre} selectMovie={selectMovie} />
         ))}
-      </div>
+      </section>
     </div>
   );
 }
