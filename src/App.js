@@ -36,7 +36,7 @@ function App() {
       });
 
       const genres = await res.data;
-      console.log("genres: ", genres);
+
       setGenres(genres);
     }
 
@@ -48,7 +48,7 @@ function App() {
       });
 
       const movies = await res.data.results;
-      console.log("movies: ", movies);
+
       setMovies(movies);
       selectMovie(movies[0].title);
     }
